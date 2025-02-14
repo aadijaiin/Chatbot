@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
-// const key = process.env.REACT_APP_API_KEY;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 function App() {
   const [chatHistory, setChatHistory] = useState([]);
@@ -31,7 +31,7 @@ function App() {
 
     try {
       const response = await axios({
-        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyDVaIkCXLtIeRJUgpGWaFXiLKaUDqLfCU8`,// replace with your actual API key
+        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=API_KEY`,// replace with your actual API key
         method: "post",
         data: {
           contents: [{ parts: [{ text: question }] }],
